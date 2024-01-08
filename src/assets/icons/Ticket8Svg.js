@@ -1,0 +1,63 @@
+import React from 'react'
+
+const Ticket8Svg = ({ width, height }) => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width={width}
+      height={height}
+      viewBox='0 0 14 14.435'
+    >
+      <g id='ticket-8-svgrepo-com' transform='translate(-7.709 0)'>
+        <path
+          id='Path_3160'
+          data-name='Path 3160'
+          d='M39.165,231.065h-9.83a1.52,1.52,0,0,0-1.518,1.519v1.857l.446.064a.526.526,0,0,1,0,1.042l-.446.064v1.857a1.52,1.52,0,0,0,1.518,1.518h9.83a1.52,1.52,0,0,0,1.519-1.518v-1.893l-.5-.023a.526.526,0,0,1,0-1.051l.5-.023v-1.893A1.52,1.52,0,0,0,39.165,231.065Zm1,2.916a1.046,1.046,0,0,0,0,2.089v1.4a1,1,0,0,1-1,1h-9.83a1,1,0,0,1-1-1v-1.407a1.046,1.046,0,0,0,0-2.071v-1.406a1,1,0,0,1,1-1h9.83a1,1,0,0,1,1,1Z'
+          transform='translate(-19.54 -224.55)'
+        />
+        <rect
+          id='Rectangle_696'
+          data-name='Rectangle 696'
+          width='0.344'
+          height='0.897'
+          transform='translate(11.259 12.389)'
+        />
+        <rect
+          id='Rectangle_697'
+          data-name='Rectangle 697'
+          width='0.344'
+          height='0.896'
+          transform='translate(11.259 10.814)'
+        />
+        <rect
+          id='Rectangle_698'
+          data-name='Rectangle 698'
+          width='0.344'
+          height='0.897'
+          transform='translate(11.259 9.239)'
+        />
+        <rect
+          id='Rectangle_699'
+          data-name='Rectangle 699'
+          width='0.344'
+          height='0.897'
+          transform='translate(11.259 7.664)'
+        />
+        <path
+          id='Path_3161'
+          data-name='Path 3161'
+          d='M100.892,180.758l-.3.167.436.783.3-.167Z'
+          transform='translate(-90.264 -175.662)'
+        />
+        <path
+          id='Path_3162'
+          data-name='Path 3162'
+          d='M21.519,5.047,20.84,3.826,20.6,3.393l-.444.221a.526.526,0,0,1-.511-.919l.422-.261L19.824,2,19.145.78A1.52,1.52,0,0,0,17.079.191L8.489,4.97A1.52,1.52,0,0,0,7.9,7.036l.025.044a2.112,2.112,0,0,1,.347-.491,1,1,0,0,1,.469-1.165L17.332.645a1,1,0,0,1,1.359.387l.679,1.221a1.046,1.046,0,0,0,1.016,1.826L21.065,5.3a1,1,0,0,1-.1,1.116,2.12,2.12,0,0,1,.357.383A1.52,1.52,0,0,0,21.519,5.047Z'
+          transform='translate(0 0)'
+        />
+      </g>
+    </svg>
+  )
+}
+
+export default Ticket8Svg

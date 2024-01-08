@@ -1,0 +1,55 @@
+.sureContainer {
+  position: relative;
+  margin: 0.5rem 0 0 0;
+  padding: 10px;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+}
+
+.sureTextView {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.sureDescView {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.sureBar {
+  position: relative;
+}
+
+.sure {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.sureDesc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  gap: 5px;
+}
+
+.sureDesc:active {
+  opacity: 0.5;
+}
+
+.sureTitle {
+  width: 87%;
+}

@@ -1,0 +1,187 @@
+.container {
+  flex: 1;
+}
+
+/* .scrollDiv {
+  overflow: auto;
+} */
+
+/* Hide scrollbar for Chrome; Safari and Opera */
+.scrollDiv::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE; Edge and Firefox */
+.scrollDiv {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.title {
+  color: #010101;
+  font-size: 15px;
+}
+
+.infoDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.info {
+  color: #010101;
+  font-size: 12px;
+}
+.selectTesisTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0 -5px 0;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f3f3f3;
+  text-align: center;
+  font-size: 13px;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+.selectIconTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+/* .modal-dialog {
+  padding: 0 0.2rem;
+} */
+
+button:active {
+  opacity: 0.5;
+}
+
+.listBody {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.listItem {
+  border-bottom: 1px solid #b5ccc2;
+  margin: 0.5rem 0 0 0;
+}
+
+.azimMetreDiv {
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  padding-top: 5px;
+  margin: 1.5rem 0 0 0;
+  overflow: hidden;
+}
+
+.azimTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 15px 1px 15px;
+}
+
+.azimTitleDiv {
+  display: flex;
+  flex-direction: row;
+  color: #010101;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.azimTitleMessage {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.daysDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.days {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dayDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 9px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.buttonsDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 0.8rem;
+}
+
+@media screen and (max-width: 415px) {
+  .dayDiv {
+    font-size: 13px;
+    padding: 5px 7px;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .dayDiv {
+    font-size: 13px;
+    padding: 5px 6px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .dayDiv {
+    font-size: 12px;
+    padding: 5px 6px;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .dayDiv {
+    font-size: 12px;
+    padding: 4px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .dayDiv {
+    font-size: 12px;
+    padding: 2px 4px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .dayDiv {
+    font-size: 11px;
+    padding: 2px 4px;
+  }
+}

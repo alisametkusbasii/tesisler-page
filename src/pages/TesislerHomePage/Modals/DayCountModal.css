@@ -1,0 +1,16 @@
+.modalBody {
+  position: relative;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: '0 20px 20px 20px';
+}
+
+.modalTitle {
+  /* margin: '15px 0 10px 0';  => başlık eklenirse açılacak*/
+  font-size: '15px';
+}
+
+.item {
+  font-size: '15px';
+  color: #515151;
+}

@@ -1,0 +1,33 @@
+.logo svg {
+  width: 7rem;
+}
+
+@media screen and (max-width: 340px) {
+  .logo svg {
+    width: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .logo svg {
+    width: 6rem;
+  }
+}
+
+@media screen and (max-width: 305px) {
+  .logo svg {
+    width: 5.5rem;
+  }
+}
+
+@media screen and (max-width: 297px) {
+  .logo svg {
+    width: 5rem;
+  }
+}
+
+@media screen and (max-width: 288px) {
+  .logo svg {
+    width: 4.5rem;
+  }
+}
