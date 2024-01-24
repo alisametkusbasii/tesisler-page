@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 
 import './TesislerHomePage.css'
@@ -9,6 +9,8 @@ import OptionsModal from './Modals/OptionsModal'
 import DayCountModal from './Modals/DayCountModal'
 import ProgressBar from './ProgressBar/ProgressBar'
 import GecirilenSure from './GecirilenSure/GecirilenSure'
+import { useNavigate } from 'react-router-dom'
+import Loading from '../../components/Loading/Loading'
 
 const data = [
   {
@@ -140,38 +142,43 @@ const data = [
 ]
 
 const TesislerHomePage = () => {
-  const [selectedTesis, setSelectedTesis] = useState({
-    id: 0,
-    name: 'Ali Ulvi Kurucu Gençlik Merkezi',
-    openTime: '09:00',
-    closeTime: '21:00',
-    doluluk: 90, // yüzdelik değer (90%)
-    sure: 220, // Dakika cinsinde (105dk)
-    ortalamaSure: { 7: 44, 14: 56, 28: 98 }, // 7 günlük, 14 günlük ve 28 günlük geçirilen süre dk cinsinde (7(günlük): 44(dk))
-    options: [
-      'Kütüphane',
-      'Spor Salonları',
-      'Atölyeler',
-      'Derslikler',
-      'Kafeterya',
-      'Konferans Salonu',
-      'E-Spor Merkezi',
-      'Oyun Odaları',
-    ],
-    location: {
-      lat: 37.86724637308083,
-      lng: 32.50220010118041,
-    },
-    telNo: '4449332',
-    user: {
-      azimMetre: 4,
-    },
-  })
+  const [selectedTesis, setSelectedTesis] = useState(null)
+  const navigate = useNavigate()
   // const [loading, setLoading] = useState(false)
   const [optionModalOpen, setOptionModalOpen] = useState(false)
   const [dayModalOpen, setDayModalOpen] = useState(false)
   const [lastDayCount, setLastDayCount] = useState(14)
 
+  useEffect(() => {
+    setSelectedTesis({
+      id: 0,
+      name: 'Ali Ulvi Kurucu Gençlik Merkezi',
+      openTime: '09:00',
+      closeTime: '21:00',
+      doluluk: 90, // yüzdelik değer (90%)
+      sure: 220, // Dakika cinsinde (105dk)
+      ortalamaSure: { 7: 44, 14: 56, 28: 98 }, // 7 günlük, 14 günlük ve 28 günlük geçirilen süre dk cinsinde (7(günlük): 44(dk))
+      options: [
+        'Kütüphane',
+        'Spor Salonları',
+        'Atölyeler',
+        'Derslikler',
+        'Kafeterya',
+        'Konferans Salonu',
+        'E-Spor Merkezi',
+        'Oyun Odaları',
+      ],
+      location: {
+        lat: 37.86724637308083,
+        lng: 32.50220010118041,
+      },
+      telNo: '4449332',
+      user: {
+        azimMetre: 4,
+      },
+    })
+  }, [])
+  
   const toggleModal = () => {
     setOptionModalOpen(!optionModalOpen)
   }
@@ -180,19 +187,24 @@ const TesislerHomePage = () => {
     setDayModalOpen(!dayModalOpen)
   }
 
-  return (
+  return selectedTesis ? (
     <>
       <div className='container' /**style={{ marginTop: '2rem' }} */>
         <div className='scrollDiv'>
           <div className=''>
-            <Header backButton={false} onClick={()=> {}} />
+            <Header
+              backButton={true}
+              onClick={() => {
+                navigate(-1)
+              }}
+            />
           </div>
           <SelectTesis
             data={data}
             onSelect={setSelectedTesis}
             selectedItem={selectedTesis}
           />
-          <AzimMetre azimMetreCount={selectedTesis.user.azimMetre} />
+          <AzimMetre azimMetreCount={selectedTesis?.user.azimMetre} />
           <MapMarker
             selectedTesis={selectedTesis}
             setOptionModalOpen={setOptionModalOpen}
@@ -217,6 +229,8 @@ const TesislerHomePage = () => {
         setLastDayCount={setLastDayCount}
       />
     </>
+  ) : (
+    <Loading text='Yükleniyor...' />
   )
 }
 export default TesislerHomePage

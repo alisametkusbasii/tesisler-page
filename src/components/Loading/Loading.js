@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spinner } from 'reactstrap';
 import Lottie from 'react-lottie';
-import * as animationData from '../../src/assets/middle-lottie-animation.json';
+import * as animationData from '../../assets/middle-lottie-animation.json';
 import './Loading.css';
 
 const Loading = ({ text, formText, formLodading = false }) => {
