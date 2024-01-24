@@ -8,7 +8,7 @@ import './Header.css'
 const Header = ({ backButton = true, onClick }) => {
   const navigate = useNavigate()
   return (
-    <div>
+    <div className=''>
       <div style={{ minWidth: '100%', minHeight: '2.5rem' }} />
       <div
         style={{
@@ -45,7 +45,13 @@ const Header = ({ backButton = true, onClick }) => {
           </div>
         ) : (
           <div>
-            <div style={{ width: '100%' }}></div>
+            <div
+              style={{
+                padding: '0.7rem',
+                height: '0.7rem',
+                width: '2.8rem',
+              }}
+            ></div>
           </div>
         )}
         <div
