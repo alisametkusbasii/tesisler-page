@@ -9,7 +9,6 @@ import OptionsModal from './Modals/OptionsModal'
 import DayCountModal from './Modals/DayCountModal'
 import ProgressBar from './ProgressBar/ProgressBar'
 import GecirilenSure from './GecirilenSure/GecirilenSure'
-import { useNavigate } from 'react-router-dom'
 import Loading from '../../components/Loading/Loading'
 
 const data = [
@@ -143,7 +142,6 @@ const data = [
 
 const TesislerHomePage = () => {
   const [selectedTesis, setSelectedTesis] = useState(null)
-  const navigate = useNavigate()
   // const [loading, setLoading] = useState(false)
   const [optionModalOpen, setOptionModalOpen] = useState(false)
   const [dayModalOpen, setDayModalOpen] = useState(false)
@@ -178,7 +176,7 @@ const TesislerHomePage = () => {
       },
     })
   }, [])
-  
+
   const toggleModal = () => {
     setOptionModalOpen(!optionModalOpen)
   }
@@ -187,17 +185,17 @@ const TesislerHomePage = () => {
     setDayModalOpen(!dayModalOpen)
   }
 
+  const handleBackButton = () => {
+    window.close();
+    return true
+  }
+
   return selectedTesis ? (
     <>
       <div className='container' /**style={{ marginTop: '2rem' }} */>
         <div className='scrollDiv'>
           <div className=''>
-            <Header
-              backButton={true}
-              onClick={() => {
-                navigate(-1)
-              }}
-            />
+            <Header backButton={true} onClick={handleBackButton} />
           </div>
           <SelectTesis
             data={data}
