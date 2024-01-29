@@ -194,9 +194,9 @@ const TesislerHomePage = () => {
     <>
       <div className='container' /**style={{ marginTop: '2rem' }} */>
         <div className='scrollDiv'>
-          <div className=''>
+          {/* <div className=''>
             <Header backButton={true} onClick={handleBackButton} />
-          </div>
+          </div> */}
           <SelectTesis
             data={data}
             onSelect={setSelectedTesis}
