@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header'
+// import Header from '../../components/Header'
 
 import './TesislerHomePage.css'
 import SelectTesis from './SelectTesis'
@@ -185,10 +185,10 @@ const TesislerHomePage = () => {
     setDayModalOpen(!dayModalOpen)
   }
 
-  const handleBackButton = () => {
-    window.close();
-    return true
-  }
+  // const handleBackButton = () => {
+  //   window.close();
+  //   return true
+  // }
 
   return selectedTesis ? (
     <>
