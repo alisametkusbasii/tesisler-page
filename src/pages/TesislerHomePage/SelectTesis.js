@@ -39,6 +39,7 @@ const SelectTesis = ({ data, onSelect, selectedItem }) => {
         style={{
           userSelect: 'none',
         }}
+        dialogClassName='backdropClassName'
         size='sm'
         //   backdrop='static'
         centered

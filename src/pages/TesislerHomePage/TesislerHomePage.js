@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import Header from '../../components/Header'
+import Header from '../../components/Header'
 
 import './TesislerHomePage.css'
 import SelectTesis from './SelectTesis'
@@ -185,18 +185,18 @@ const TesislerHomePage = () => {
     setDayModalOpen(!dayModalOpen)
   }
 
-  // const handleBackButton = () => {
-  //   window.close();
-  //   return true
-  // }
+  const handleBackButton = () => {
+    var win = window.open('about:blank', '_self')
+    win.close()
+  }
 
   return selectedTesis ? (
     <>
       <div className='container' /**style={{ marginTop: '2rem' }} */>
         <div className='scrollDiv'>
-          {/* <div className=''>
+          <div className=''>
             <Header backButton={true} onClick={handleBackButton} />
-          </div> */}
+          </div>
           <SelectTesis
             data={data}
             onSelect={setSelectedTesis}
