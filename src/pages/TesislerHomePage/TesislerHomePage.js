@@ -29,10 +29,7 @@ const TesislerHomePage = () => {
     await axios
       .get(process.env.REACT_APP_BASE_URL + '/api/tesisler', {
         headers: {
-          Authorization:
-            typeof localStorage.getItem('token') === 'string'
-              ? localStorage.getItem('token')
-              : JSON.parse(localStorage.getItem('token')),
+          Authorization: JSON.parse(localStorage.getItem('token')),
         },
       })
       .then((res) => {
