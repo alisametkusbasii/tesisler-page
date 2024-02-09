@@ -26,7 +26,6 @@ const TesislerHomePage = () => {
 
   const getData = async () => {
     setLoading(true)
-    console.log('token: ', localStorage.getItem('token'))
     await axios
       .get(process.env.REACT_APP_BASE_URL + '/api/tesisler', {
         headers: {
@@ -39,7 +38,7 @@ const TesislerHomePage = () => {
       .then((res) => {
         setLoading(false)
         setData(res.data.tesisler)
-        setSelectedTesis(res.data.tesisler[0].tesis)
+        setSelectedTesis(res.data.tesisler[0])
       })
   }
 
@@ -73,17 +72,16 @@ const TesislerHomePage = () => {
           <SelectTesis
             data={data}
             onSelect={setSelectedTesis}
-            selectedItem={selectedTesis}
+            selectedItem={selectedTesis?.tesis}
           />
-          <AzimMetre azimMetreCount={4} /** Veri Yok */ />
+          <AzimMetre azimMetreCount={selectedTesis?.user.azimMetre} />
           <MapMarker
-            selectedTesis={selectedTesis}
+            selectedTesis={selectedTesis?.tesis}
             setOptionModalOpen={setOptionModalOpen}
           />
-          <ProgressBar doluluk={42} /** Veri Yok */ />
+          <ProgressBar doluluk={selectedTesis?.doluluk} />
           <GecirilenSure
-            ortalamaSure={{ 7: 44, 14: 56, 28: 98 }} // Veri Yok
-            sure={105} // Veri Yok
+            ortalamaSure={selectedTesis?.ortalamaSure}
             lastDayCount={lastDayCount}
             toggleDayModal={toggleDayModal}
           />
@@ -92,7 +90,7 @@ const TesislerHomePage = () => {
       <OptionsModal
         show={optionModalOpen}
         onHide={toggleModal}
-        data={selectedTesis}
+        data={selectedTesis?.tesis}
       />
       <DayCountModal
         show={dayModalOpen}

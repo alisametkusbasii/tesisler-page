@@ -50,8 +50,7 @@ const SelectTesis = ({ data, onSelect, selectedItem }) => {
               className='listItem'
               key={item.id}
               onClick={() => {
-                console.log('ITEM: ', item);
-                onSelect(item.tesis)
+                onSelect(item)
                 setIsSelectModalVisible(false)
               }}
             >

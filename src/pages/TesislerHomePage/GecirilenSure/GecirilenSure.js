@@ -8,12 +8,7 @@ import CalendarBlackSvg from '../../../assets/icons/CalendarBlackSvg'
 
 import './GecirilenSure.css'
 
-const GecirilenSure = ({
-  sure,
-  lastDayCount,
-  toggleDayModal,
-  ortalamaSure,
-}) => {
+const GecirilenSure = ({ lastDayCount, toggleDayModal, ortalamaSure }) => {
   const timeConvert = (num) => {
     const hours = Math.floor(num / 60)
     const minutes = Math.round((num / 60 - hours) * 60)
@@ -47,8 +42,10 @@ const GecirilenSure = ({
         <div className='sureTextView'>
           <div className='sureBar'>
             <div>
-              {renderSureBar(sure)}
-              <div className='sure'>{timeConvert(sure)}</div>
+              {renderSureBar(ortalamaSure[lastDayCount])}
+              <div className='sure'>
+                {timeConvert(ortalamaSure[lastDayCount])}
+              </div>
             </div>
           </div>
           <div className='sureDescView'>
