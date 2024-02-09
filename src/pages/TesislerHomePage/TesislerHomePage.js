@@ -10,172 +10,45 @@ import DayCountModal from './Modals/DayCountModal'
 import ProgressBar from './ProgressBar/ProgressBar'
 import GecirilenSure from './GecirilenSure/GecirilenSure'
 import Loading from '../../components/Loading/Loading'
-
-const data = [
-  {
-    id: 0,
-    name: 'Ali Ulvi Kurucu Gençlik Merkezi',
-    openTime: '09:00',
-    closeTime: '21:00',
-    doluluk: 49,
-    sure: 105,
-    ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    options: [
-      'Kütüphane',
-      'Spor Salonları',
-      'Atölyeler',
-      ' Derslikler',
-      ' Kafeterya',
-      ' Konferans Salonu',
-      ' E-Spor Merkezi',
-      ' Oyun Odaları',
-    ],
-    location: {
-      lat: 37.86724637308083,
-      lng: 32.50220010118041,
-    },
-    telNo: '4449332',
-    user: {
-      azimMetre: 4,
-    },
-  },
-  {
-    id: 1,
-    name: 'TEST1',
-    openTime: '06:00',
-    closeTime: '18:00',
-    doluluk: 24,
-    sure: 105,
-    ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    options: [
-      'Kütüphane',
-      'Spor Salonları',
-      'Atölyeler',
-      ' Derslikler',
-      ' Kafeterya',
-      ' Konferans Salonu',
-      ' E-Spor Merkezi',
-      ' Oyun Odaları',
-    ],
-    location: {
-      lat: 37.86724637308083,
-      lng: 32.50220010118041,
-    },
-    telNo: '4449332',
-    user: {
-      azimMetre: 1,
-    },
-  },
-  {
-    id: 2,
-    name: 'TEST2',
-    openTime: '07:00',
-    closeTime: '19:00',
-    doluluk: 74,
-    sure: 105,
-    ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    options: [' Oyun Odaları'],
-    location: {
-      lat: 32.50220010118041,
-      lng: 37.86724637308083,
-    },
-    telNo: '4449332',
-    user: {
-      azimMetre: 2,
-    },
-  },
-  {
-    id: 3,
-    name: 'TEST3',
-    openTime: '08:00',
-    closeTime: '20:00',
-    doluluk: 100,
-    sure: 105,
-    ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    options: [
-      'Kütüphane',
-      'Spor Salonları',
-      'Atölyeler',
-      ' Derslikler',
-      ' Kafeterya',
-      ' Konferans Salonu',
-      ' E-Spor Merkezi',
-      ' Oyun Odaları',
-    ],
-    location: {
-      lat: 37.86724637308083,
-      lng: 32.50220010118041,
-    },
-    telNo: '4449332',
-    user: {
-      azimMetre: 3,
-    },
-  },
-  {
-    id: 4,
-    name: 'TEST4',
-    openTime: '09:00',
-    closeTime: '21:00',
-    doluluk: 76,
-    sure: 105,
-    ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    options: [
-      'Kütüphane',
-      'Spor Salonları',
-      'Atölyeler',
-      ' Derslikler',
-      ' Kafeterya',
-      ' Konferans Salonu',
-      ' E-Spor Merkezi',
-      ' Oyun Odaları',
-    ],
-    location: {
-      lat: 37.86724637308083,
-      lng: 32.50220010118041,
-    },
-    telNo: '4449332',
-    user: {
-      azimMetre: 0,
-    },
-  },
-]
+import axios from 'axios'
+import { useLocation } from 'react-router-dom'
 
 const TesislerHomePage = () => {
+  let location = useLocation()
+  const token = location.search.slice(7)
+
   const [selectedTesis, setSelectedTesis] = useState(null)
-  // const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [optionModalOpen, setOptionModalOpen] = useState(false)
   const [dayModalOpen, setDayModalOpen] = useState(false)
   const [lastDayCount, setLastDayCount] = useState(14)
+  const [data, setData] = useState(null)
+
+  const getData = async () => {
+    setLoading(true)
+    console.log('token: ', localStorage.getItem('token'))
+    await axios
+      .get(process.env.REACT_APP_BASE_URL + '/api/tesisler', {
+        headers: {
+          Authorization:
+            typeof localStorage.getItem('token') === 'string'
+              ? localStorage.getItem('token')
+              : JSON.parse(localStorage.getItem('token')),
+        },
+      })
+      .then((res) => {
+        setLoading(false)
+        setData(res.data.tesisler)
+        setSelectedTesis(res.data.tesisler[0].tesis)
+      })
+  }
 
   useEffect(() => {
-    setSelectedTesis({
-      id: 0,
-      name: 'Ali Ulvi Kurucu Gençlik Merkezi',
-      openTime: '09:00',
-      closeTime: '21:00',
-      doluluk: 90, // yüzdelik değer (90%)
-      sure: 220, // Dakika cinsinde (105dk)
-      ortalamaSure: { 7: 44, 14: 56, 28: 98 }, // 7 günlük, 14 günlük ve 28 günlük geçirilen süre dk cinsinde (7(günlük): 44(dk))
-      options: [
-        'Kütüphane',
-        'Spor Salonları',
-        'Atölyeler',
-        'Derslikler',
-        'Kafeterya',
-        'Konferans Salonu',
-        'E-Spor Merkezi',
-        'Oyun Odaları',
-      ],
-      location: {
-        lat: 37.86724637308083,
-        lng: 32.50220010118041,
-      },
-      telNo: '4449332',
-      user: {
-        azimMetre: 4,
-      },
-    })
-  }, [])
+    if (token) {
+      localStorage.setItem('token', JSON.stringify(token))
+    }
+    getData()
+  }, [token])
 
   const toggleModal = () => {
     setOptionModalOpen(!optionModalOpen)
@@ -190,9 +63,9 @@ const TesislerHomePage = () => {
     win.close()
   }
 
-  return selectedTesis ? (
+  return !loading && selectedTesis ? (
     <>
-      <div className='container' /**style={{ marginTop: '2rem' }} */>
+      <div className='container'>
         <div className='scrollDiv'>
           <div className=''>
             <Header backButton={true} onClick={handleBackButton} />
@@ -202,15 +75,15 @@ const TesislerHomePage = () => {
             onSelect={setSelectedTesis}
             selectedItem={selectedTesis}
           />
-          <AzimMetre azimMetreCount={selectedTesis?.user.azimMetre} />
+          <AzimMetre azimMetreCount={4} /** Veri Yok */ />
           <MapMarker
             selectedTesis={selectedTesis}
             setOptionModalOpen={setOptionModalOpen}
           />
-          <ProgressBar doluluk={selectedTesis?.doluluk} />
+          <ProgressBar doluluk={42} /** Veri Yok */ />
           <GecirilenSure
-            ortalamaSure={selectedTesis?.ortalamaSure}
-            sure={selectedTesis?.sure}
+            ortalamaSure={{ 7: 44, 14: 56, 28: 98 }} // Veri Yok
+            sure={105} // Veri Yok
             lastDayCount={lastDayCount}
             toggleDayModal={toggleDayModal}
           />

@@ -14,11 +14,11 @@ const SelectTesis = ({ data, onSelect, selectedItem }) => {
         <div className='infoDiv'>
           <div className='infoWrapper'>
             <CircleGreenSvg width={10} height={10} />
-            <div className='info'>{`Açılış ${selectedItem.openTime}`}</div>
+            <div className='info'>{`Açılış ${selectedItem.acilis_saati}`}</div>
           </div>
           <div className='infoWrapper'>
             <CircleRedSvg width={10} height={10} />
-            <div className='info'>{`Kapanış ${selectedItem.closeTime}`}</div>
+            <div className='info'>{`Kapanış ${selectedItem.kapanis_saati}`}</div>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@ const SelectTesis = ({ data, onSelect, selectedItem }) => {
           <div>
             <LocationPinBlackSvg width={18} height={18} />{' '}
           </div>
-          <div>{selectedItem.name}</div>
+          <div>{selectedItem.title}</div>
         </div>
         <div>
           <ArrowDownSvg width={18} height={18} stroke={'#b4b4b4'} />{' '}
@@ -50,11 +50,12 @@ const SelectTesis = ({ data, onSelect, selectedItem }) => {
               className='listItem'
               key={item.id}
               onClick={() => {
-                onSelect(item)
+                console.log('ITEM: ', item);
+                onSelect(item.tesis)
                 setIsSelectModalVisible(false)
               }}
             >
-              {item.name}
+              {item.tesis.title}
             </div>
           ))}
           <div

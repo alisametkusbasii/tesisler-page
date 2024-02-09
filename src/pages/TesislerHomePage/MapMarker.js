@@ -32,14 +32,14 @@ const MapMarker = (props) => {
             key: 'AIzaSyDzEzefsHqb1EbaN7DBemUAmMYQRrsdXH0',
           }}
           defaultCenter={{
-            lat: props.selectedTesis.location.lat,
-            lng: props.selectedTesis.location.lng,
+            lat: Number(props.selectedTesis.location_lat),
+            lng: Number(props.selectedTesis.location_long),
           }}
           defaultZoom={12}
         >
           <MarkerIcon
-            lat={props.selectedTesis.location.lat}
-            lng={props.selectedTesis.location.lng}
+            lat={props.selectedTesis.location_lat}
+            lng={props.selectedTesis.location_long}
           />
         </GoogleMapReact>
       </div>
@@ -54,7 +54,7 @@ const MapMarker = (props) => {
           backgroundColor={'#303030'}
           icon={<PhoneSvg width={18} height={18} />}
           text={'Tesise Ulaşın'}
-          onClick={() => window.open(`tel:${props.selectedTesis.telNo}`)}
+          onClick={() => window.open(`tel:${props.selectedTesis.tesis_tel_no}`)}
         />
       </div>
     </div>
