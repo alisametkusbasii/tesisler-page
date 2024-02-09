@@ -12,6 +12,8 @@ import GecirilenSure from './GecirilenSure/GecirilenSure'
 import Loading from '../../components/Loading/Loading'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
+import Lottie from 'react-lottie'
+import * as animationData from '../../assets/76705-error-animation.json'
 
 const TesislerHomePage = () => {
   let location = useLocation()
@@ -23,6 +25,16 @@ const TesislerHomePage = () => {
   const [dayModalOpen, setDayModalOpen] = useState(false)
   const [lastDayCount, setLastDayCount] = useState(14)
   const [data, setData] = useState(null)
+  const [warning, setWarning] = useState({ title: '', type: '' })
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  }
 
   const getData = async () => {
     setLoading(true)
@@ -36,6 +48,11 @@ const TesislerHomePage = () => {
         setLoading(false)
         setData(res.data.tesisler)
         setSelectedTesis(res.data.tesisler[0])
+      })
+      .catch((err) => {
+        setLoading(false)
+        setWarning({title: 'Uyarı', type: 'geçersiz_token'})
+        console.log('error: ', err)
       })
   }
 
@@ -59,42 +76,80 @@ const TesislerHomePage = () => {
     win.close()
   }
 
-  return !loading && selectedTesis ? (
-    <>
-      <div className='container'>
-        <div className='scrollDiv'>
-          <div className=''>
-            <Header backButton={true} onClick={handleBackButton} />
+  const warningText = (errorMessage = '') => {
+    if (warning.type === 'geçersiz_token') {
+      return <p>Herhangi bir tesise başvurunuz bulunmamaktadır.</p>
+    }
+
+    if (warning.type === 'server_error') {
+      return <p>{errorMessage}</p>
+    }
+  }
+
+  return !loading ? (
+    data?.length > 0 ? (
+      <>
+        <div className='container'>
+          <div className='scrollDiv'>
+            <div className=''>
+              <Header backButton={true} onClick={handleBackButton} />
+            </div>
+            <SelectTesis
+              data={data}
+              onSelect={setSelectedTesis}
+              selectedItem={selectedTesis?.tesis}
+            />
+            <AzimMetre azimMetreCount={selectedTesis?.user.azimMetre} />
+            <MapMarker
+              selectedTesis={selectedTesis?.tesis}
+              setOptionModalOpen={setOptionModalOpen}
+            />
+            <ProgressBar doluluk={selectedTesis?.doluluk} />
+            <GecirilenSure
+              ortalamaSure={selectedTesis?.ortalamaSure}
+              lastDayCount={lastDayCount}
+              toggleDayModal={toggleDayModal}
+            />
           </div>
-          <SelectTesis
-            data={data}
-            onSelect={setSelectedTesis}
-            selectedItem={selectedTesis?.tesis}
-          />
-          <AzimMetre azimMetreCount={selectedTesis?.user.azimMetre} />
-          <MapMarker
-            selectedTesis={selectedTesis?.tesis}
-            setOptionModalOpen={setOptionModalOpen}
-          />
-          <ProgressBar doluluk={selectedTesis?.doluluk} />
-          <GecirilenSure
-            ortalamaSure={selectedTesis?.ortalamaSure}
-            lastDayCount={lastDayCount}
-            toggleDayModal={toggleDayModal}
-          />
         </div>
+        <OptionsModal
+          show={optionModalOpen}
+          onHide={toggleModal}
+          data={selectedTesis?.tesis}
+        />
+        <DayCountModal
+          show={dayModalOpen}
+          onHide={toggleDayModal}
+          setLastDayCount={setLastDayCount}
+        />
+      </>
+    ) : (
+      <div
+        style={{
+          display: 'flex',
+          alignSelf: 'center',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          height: '100vh',
+        }}
+      >
+        <div
+          style={{ with: '100%', marginBottom: '1rem', marginTop: '0.5rem' }}
+        >
+          <Lottie options={defaultOptions} height={75} width={75} />
+        </div>
+        <p
+          style={{
+            fontWeight: 'bolder',
+            fontSize: 25,
+          }}
+        >
+          {warning.title ?? 'Uyarı'}
+        </p>
+        <div style={{ textAlign: 'center' }}>{warningText()}</div>
       </div>
-      <OptionsModal
-        show={optionModalOpen}
-        onHide={toggleModal}
-        data={selectedTesis?.tesis}
-      />
-      <DayCountModal
-        show={dayModalOpen}
-        onHide={toggleDayModal}
-        setLastDayCount={setLastDayCount}
-      />
-    </>
+    )
   ) : (
     <Loading text='Yükleniyor...' />
   )
