@@ -1,0 +1,152 @@
+.list-item {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 0.3rem;
+  position: relative;
+}
+
+.ozellikBtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  background-color: #fff;
+  font-size: 14px !important;
+  padding: .3rem .6rem;
+}
+
+.beklemede {
+  position: absolute;
+  bottom: 15px;
+  right: 35px;
+  font-size: 14px !important;
+}
+
+.ozellikBtn svg {
+ width: 1rem !important;
+ height: 1rem !important;
+}
+
+.ozellikBtn:active {
+  opacity: 0.5;
+}
+
+.item-adress {
+  color: #656565;
+}
+
+@media screen and (min-width: 320px) {
+  .item-image img {
+    height: 3rem;
+  }
+  .item-title {
+    font-size: 11px;
+  }
+  .item-adress {
+    font-size: 10px;
+  }
+  
+  .ozellikBtn {
+    font-size: 10px !important;
+  }
+
+  .beklemede {
+    font-size: 10px !important;
+  }
+
+  .ozellikBtn svg {
+    width: 0.7rem !important;
+    height: 0.7rem !important;
+  }
+
+  .circle {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+}
+
+@media screen and (min-width: 355px) {
+  .item-image img {
+    height: 4rem;
+  }
+  .item-title {
+    font-size: 12px;
+  }
+  .item-adress {
+    font-size: 10px;
+  }
+  
+  .ozellikBtn {
+    font-size: 11px !important;
+  }
+
+  .beklemede {
+    font-size: 11px !important;
+  }
+
+  .ozellikBtn svg {
+    width: 0.7rem !important;
+    height: 0.7rem !important;
+  }
+
+  .circle {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 395px) {
+  .item-image img {
+    height: 4.5rem;
+  }
+  .item-title {
+    font-size: 13px !important;
+  }
+  .item-adress {
+    font-size: 12px !important;
+  }
+  
+  .ozellikBtn {
+    font-size: 13px !important;
+  }
+
+  .beklemede {
+    font-size: 13px !important;
+  }
+  
+  .ozellikBtn svg {
+    width: 0.9rem !important;
+    height: 0.9rem !important;
+  }
+  .circle {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+}
+
+@media screen and (min-width: 415px) {
+  .item-image img {
+    height: 5rem;
+  }
+  .ozellikBtn {
+    font-size: 13px !important;
+  }
+
+  .beklemede {
+    font-size: 13px !important;
+  }
+  
+  .ozellikBtn svg {
+    width: .9rem !important;
+    height: .9rem !important;
+  }
+  .circle {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+}

@@ -33,7 +33,10 @@
 .infoDiv {
   display: flex;
   flex-direction: row;
+  background-color: #f0f0f0;
+  padding: .1rem .3rem;
   gap: 5px;
+  margin-top: .5rem;
 }
 .info {
   color: #010101;
@@ -41,9 +44,9 @@
 }
 .selectTesisTitle {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 0.5rem 0 -5px 0;
 }
 

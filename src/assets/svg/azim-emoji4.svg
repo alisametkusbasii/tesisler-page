@@ -6,7 +6,7 @@
       stroke-linejoin="round" stroke-width="0.8" />
     <path id="Path_3154" data-name="Path 3154" d="M17,11a6,6,0,1,1-1.757-4.243A6,6,0,0,1,17,11Z"
       fill="none" stroke="#e15226" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8"
-      fill-rule="evenodd" />
+      fillRule="evenodd" />
     <path id="Path_3155" data-name="Path 3155" d="M9,11V10" transform="translate(-0.571 -0.769)"
       fill="none" stroke="#e15226" stroke-linecap="round" stroke-width="0.8" />
     <path id="Path_3156" data-name="Path 3156" d="M15,11V10" transform="translate(-1.429 -0.769)"

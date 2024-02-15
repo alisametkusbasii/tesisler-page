@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header'
-
+import Header from '../../components/Header/index'
 import './TesislerHomePage.css'
 import SelectTesis from './SelectTesis'
 import AzimMetre from './AzimMetre'
@@ -10,41 +9,30 @@ import DayCountModal from './Modals/DayCountModal'
 import ProgressBar from './ProgressBar/ProgressBar'
 import GecirilenSure from './GecirilenSure/GecirilenSure'
 import Loading from '../../components/Loading/Loading'
-import axios from 'axios'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const TesislerHomePage = () => {
   let location = useLocation()
+  const data = location?.state?.selectedTesis
   const token = location.search.slice(7)
+  const navigate = useNavigate()
 
   const [selectedTesis, setSelectedTesis] = useState(null)
   const [loading, setLoading] = useState(false)
   const [optionModalOpen, setOptionModalOpen] = useState(false)
   const [dayModalOpen, setDayModalOpen] = useState(false)
   const [lastDayCount, setLastDayCount] = useState(14)
-  const [data, setData] = useState(null)
-
-  const getData = async () => {
-    setLoading(true)
-    await axios
-      .get(process.env.REACT_APP_BASE_URL + '/api/tesisler', {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem('token')),
-        },
-      })
-      .then((res) => {
-        setLoading(false)
-        setData(res.data.tesisler)
-        setSelectedTesis(res.data.tesisler[0])
-      })
-  }
 
   useEffect(() => {
     if (token) {
       localStorage.setItem('token', JSON.stringify(token))
     }
-    getData()
-  }, [token])
+    if (data) {
+      console.log(data)
+      setLoading(false)
+    }
+    setSelectedTesis(data)
+  }, [token, data])
 
   const toggleModal = () => {
     setOptionModalOpen(!optionModalOpen)
@@ -55,25 +43,35 @@ const TesislerHomePage = () => {
   }
 
   const handleBackButton = () => {
-    var win = window.open('about:blank', '_self')
-    win.close()
+    navigate('/')
   }
+
+  const user = selectedTesis?.user?.find(
+    (item) => item.tesis_id === selectedTesis?.id
+  )
 
   return !loading && selectedTesis ? (
     <>
-      <div className='container'>
-        <div className='scrollDiv'>
-          <div className=''>
-            <Header backButton={true} onClick={handleBackButton} />
-          </div>
+      <div className='scrollDiv'>
+        <div
+          style={{
+            backgroundColor: '#fff',
+            position: 'sticky',
+            top: 0,
+            zIndex: 999,
+          }}
+        >
+          <Header backButton onClick={handleBackButton} />
+        </div>
+        <div className='container'>
           <SelectTesis
             data={data}
             onSelect={setSelectedTesis}
-            selectedItem={selectedTesis?.tesis}
+            selectedItem={selectedTesis}
           />
-          <AzimMetre azimMetreCount={selectedTesis?.user.azimMetre} />
+          <AzimMetre azimMetreCount={user?.azimMetre} />
           <MapMarker
-            selectedTesis={selectedTesis?.tesis}
+            selectedTesis={selectedTesis}
             setOptionModalOpen={setOptionModalOpen}
           />
           <ProgressBar doluluk={selectedTesis?.doluluk} />
@@ -87,7 +85,7 @@ const TesislerHomePage = () => {
       <OptionsModal
         show={optionModalOpen}
         onHide={toggleModal}
-        data={selectedTesis?.tesis}
+        data={selectedTesis}
       />
       <DayCountModal
         show={dayModalOpen}

@@ -1,0 +1,158 @@
+.inputDiv {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 13px;
+  width: 100%;
+}
+
+.userInfoDiv {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0.4rem;
+}
+
+.form-input-div {
+  width: 49%;
+  margin-bottom: 1rem;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: #f1f1f1;
+  border: 1px solid #dbebe4;
+  border-radius: 20px;
+  width: 100%;
+  font-size: 13px;
+}
+
+.textArea {
+  display: flex;
+  align-items: flex-start !important;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: #f1f1f1;
+  border: 1px solid #dbebe4;
+  width: 100% !important;
+  border-radius: 15px;
+  font-size: 13px;
+}
+
+.label {
+  margin: 0 0 0.5rem 0;
+  font-size: 13px;
+  color: #205c42;
+}
+
+.value {
+  font-size: 13px;
+  color: #205c42;
+  font-size: 13px;
+}
+.textArea .value {
+  font-size: 13px;
+  color: #205c42;
+}
+.textArea svg {
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 425px) {
+}
+@media screen and (max-width: 395px) {
+  .input svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .textArea svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .textArea .value {
+    font-size: 13px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .value {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 351px) {
+  .input svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .textArea svg {
+    width: 1rem;
+    height: 1rem;
+  }
+  .textArea .value {
+    font-size: 13px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .value {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .input svg {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .textArea svg {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .textArea .value {
+    font-size: 11px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .value {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .input svg {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .textArea svg {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .textArea .value {
+    font-size: 11px;
+  }
+
+  .label {
+    font-size: 11px;
+  }
+
+  .value {
+    font-size: 11px;
+  }
+}

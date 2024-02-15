@@ -8,7 +8,7 @@ const IconButton = ({ icon, onClick, text, backgroundColor }) => {
         borderRadius: '5px',
         backgroundColor: backgroundColor,
         color: '#fff',
-        fontSize: '16px',
+        fontSize: '14px',
         border: 'none',
       }}
       onClick={onClick}
@@ -19,7 +19,7 @@ const IconButton = ({ icon, onClick, text, backgroundColor }) => {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'flex-start',
-          gap: '5px',
+          gap: '10px',
           padding: '0.4rem 1rem',
         }}
       >

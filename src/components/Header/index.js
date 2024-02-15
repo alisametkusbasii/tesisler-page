@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { Row, Col, Container, Button } from 'reactstrap'
 import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import LogoSvg from '../../assets/icons/LogoSvg'
@@ -8,29 +9,30 @@ import './Header.css'
 const Header = ({ backButton = true, onClick }) => {
   const navigate = useNavigate()
   return (
-    <div className='' style={{marginTop: '0.2rem'}}>
-      <div style={{ minWidth: '100%', minHeight: '2.5rem' }} />
-      <div
+    <Container>
+      <Row style={{ minWidth: '100%', minHeight: '2.5rem' }} />
+      <Row
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'space-around',
         }}
       >
         {backButton ? (
-          <div>
-            <button
+          <Col>
+            <Button
               onClick={onClick}
               style={{
                 display: 'flex',
                 justifyContent: 'center',
                 border: 'none',
                 backgroundColor: '#fff',
+                margin: '0 0 0 -.5rem'
               }}
             >
               <FontAwesomeIcon
                 style={{
-                  backgroundColor: '#F6F6F6',
+                  backgroundColor: '#EFEFEF',
                   alignItems: 'center',
                   color: '#285843',
                   borderRadius: '50px',
@@ -41,27 +43,21 @@ const Header = ({ backButton = true, onClick }) => {
                 icon={icon({ name: 'chevron-left', style: 'solid' })}
                 size='sm'
               />
-            </button>
-          </div>
+            </Button>
+          </Col>
         ) : (
-          <div>
-            <div
-              style={{
-                padding: '0.7rem',
-                height: '0.7rem',
-                width: '2.8rem',
-              }}
-            ></div>
-          </div>
+          <Col>
+            <div style={{ width: '100%' }}></div>
+          </Col>
         )}
-        <div
+        <Col
           style={{
             display: 'flex',
             justifyContent: 'center',
-            padding: '1rem 0',
+            padding: '1rem',
           }}
         >
-          <button
+          <Button
             className='logo'
             onClick={(e) => {
               e.stopPropagation()
@@ -70,11 +66,11 @@ const Header = ({ backButton = true, onClick }) => {
             style={{ backgroundColor: 'inherit', borderStyle: 'none' }}
           >
             <LogoSvg width={'7rem'} />
-          </button>
-        </div>
-        <div style={{ width: '10vw' }}></div>
-      </div>
-    </div>
+          </Button>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
   )
 }
 

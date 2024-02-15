@@ -46,13 +46,13 @@ const MapMarker = (props) => {
       <div className='buttonsDiv'>
         <IconButton
           backgroundColor={'#277151'}
-          icon={<InfoCiecleSvg width={20} height={20} />}
+          icon={<InfoCiecleSvg width={18} height={18} />}
           text={'Tesisin Özellikleri'}
           onClick={() => props.setOptionModalOpen(true)}
         />
         <IconButton
           backgroundColor={'#303030'}
-          icon={<PhoneSvg width={18} height={18} />}
+          icon={<PhoneSvg width={16} height={16} />}
           text={'Tesise Ulaşın'}
           onClick={() => window.open(`tel:${props.selectedTesis.tesis_tel_no}`)}
         />
