@@ -9,100 +9,100 @@ import RegisterPaperSvg from '../assets/icons/RegisterPaperSvg'
 import InfoCircleSvg from '../assets/icons/InfoCircleSvg'
 import InfoModal from '../components/InfoModal'
 
-const data = {
-  user: {
-    kayitli_tesisler: [
-      // Kullanıcın kayıtlı olduğu tesislerin id listesi
-      { tesis_id: 0, azimMetre: 5 },
-      { tesis_id: 1, azimMetre: 2 },
-      // { tesis_id: 2, azimMetre: 4 },
-    ],
-    onay_bekliyen_tesisler: [
-      // Kullanıcın başvurduğu tesislerin id ve başvuru bilgileri (çocuğu içinde başvurabilir)
-      {
-        id: 0,
-        tesis_id: 1,
-        person: {
-          name: 'Samet',
-          surname: 'Kuşbaşı',
-          address:
-            'Beyhekim Mah. Ali Demirtaş Sok. Toki Konutları Bk.5 No.12 Selçuklu/Konya',
-        },
-      },
-    ],
-  },
-  tesisler: [
-    {
-      id: 0,
-      title: 'Ali Ulvi Kurucu Gençlik Merkezi',
-      address: 'Erler Sk. No: 14 Karatay/KONYA',
-      location_name: 'Ali Ulvi Kurucu Gençlik Merkezi',
-      location_lat: '37.8756575',
-      location_long: '32.6240873',
-      img: 'ali-ulvi.png',
-      options:
-        '[\r\n  "Kütüphane",\r\n  "Spor Salonları",\r\n  "Atölyeler",\r\n  "Derslikler",\r\n  "Kafeterya",\r\n  "Konferans Salonu",\r\n  "E-Spor Merkezi",\r\n  "Oyun Odaları"\r\n]\r\n',
-      created_at: '2023-10-20T12:11:48.498753Z',
-      updated_at: null,
-      durum: 'E',
-      kisi_kapasitesi: '1500',
-      tesis_tel_no: 4449332,
-      acilis_saati: '08.00',
-      kapanis_saati: '17.00',
-      doluluk: 49,
-      sure: 105,
-      ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    },
-    {
-      id: 1,
-      title: 'Karatay Kültür ve Sanat Akademisi',
-      address: 'Tünelboğazı Sk. No: 26 Karatay/KONYA',
-      location_name: 'Karatay Kültür ve Sanat Akademisi',
-      location_lat: '37.8756575',
-      location_long: '32.6240873',
-      img: 'ali-ulvi.png',
-      options:
-        '[\r\n  "Kütüphane",\r\n  "Spor Salonları",\r\n  "Atölyeler",\r\n  "Derslikler",\r\n  "Kafeterya",\r\n  "Konferans Salonu",\r\n  "E-Spor Merkezi",\r\n  "Oyun Odaları"\r\n]\r\n',
-      created_at: '2023-10-20T12:11:48.498753Z',
-      updated_at: null,
-      durum: 'E',
-      kisi_kapasitesi: '1500',
-      tesis_tel_no: 4449332,
-      acilis_saati: '08.00',
-      kapanis_saati: '17.00',
-      doluluk: 76,
-      sure: 144,
-      ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    },
-    {
-      id: 2,
-      title: 'Akabe Bilgi Evi',
-      address: 'Erler Sk. No: 14 Karatay/KONYA',
-      location_name: 'Ali Ulvi Kurucu Gençlik Merkezi',
-      location_lat: '37.8756575',
-      location_long: '32.6240873',
-      img: 'ali-ulvi.png',
-      options:
-        '[\r\n  "Kütüphane",\r\n  "Spor Salonları",\r\n  "Atölyeler",\r\n  "Derslikler",\r\n  "Kafeterya",\r\n  "Konferans Salonu",\r\n  "E-Spor Merkezi",\r\n  "Oyun Odaları"\r\n]\r\n',
-      created_at: '2023-10-20T12:11:48.498753Z',
-      updated_at: null,
-      durum: 'E',
-      kisi_kapasitesi: '1500',
-      tesis_tel_no: 4449332,
-      acilis_saati: '08.00',
-      kapanis_saati: '17.00',
-      doluluk: 24,
-      sure: 36,
-      ortalamaSure: { 7: 44, 14: 56, 28: 98 },
-    },
-  ],
-}
+// const data = {
+//   user: {
+//     kayitli_tesisler: [
+//       // Kullanıcın kayıtlı olduğu tesislerin id listesi
+//       { tesis_id: 0, azimMetre: 5 },
+//       { tesis_id: 1, azimMetre: 2 },
+//       // { tesis_id: 2, azimMetre: 4 },
+//     ],
+//     onay_bekliyen_tesisler: [
+//       // Kullanıcın başvurduğu tesislerin id ve başvuru bilgileri (çocuğu içinde başvurabilir)
+//       {
+//         id: 0,
+//         tesis_id: 1,
+//         person: {
+//           name: 'Samet',
+//           surname: 'Kuşbaşı',
+//           address:
+//             'Beyhekim Mah. Ali Demirtaş Sok. Toki Konutları Bk.5 No.12 Selçuklu/Konya',
+//         },
+//       },
+//     ],
+//   },
+//   tesisler: [
+//     {
+//       id: 0,
+//       title: 'Ali Ulvi Kurucu Gençlik Merkezi',
+//       address: 'Erler Sk. No: 14 Karatay/KONYA',
+//       location_name: 'Ali Ulvi Kurucu Gençlik Merkezi',
+//       location_lat: '37.8756575',
+//       location_long: '32.6240873',
+//       img: 'ali-ulvi.png',
+//       options:
+//         '[\r\n  "Kütüphane",\r\n  "Spor Salonları",\r\n  "Atölyeler",\r\n  "Derslikler",\r\n  "Kafeterya",\r\n  "Konferans Salonu",\r\n  "E-Spor Merkezi",\r\n  "Oyun Odaları"\r\n]\r\n',
+//       created_at: '2023-10-20T12:11:48.498753Z',
+//       updated_at: null,
+//       durum: 'E',
+//       kisi_kapasitesi: '1500',
+//       tesis_tel_no: 4449332,
+//       acilis_saati: '08.00',
+//       kapanis_saati: '17.00',
+//       doluluk: 49,
+//       sure: 105,
+//       ortalamaSure: { 7: 44, 14: 56, 28: 98 },
+//     },
+//     {
+//       id: 1,
+//       title: 'Karatay Kültür ve Sanat Akademisi',
+//       address: 'Tünelboğazı Sk. No: 26 Karatay/KONYA',
+//       location_name: 'Karatay Kültür ve Sanat Akademisi',
+//       location_lat: '37.8756575',
+//       location_long: '32.6240873',
+//       img: 'ali-ulvi.png',
+//       options:
+//         '[\r\n  "Kütüphane",\r\n  "Spor Salonları",\r\n  "Atölyeler",\r\n  "Derslikler",\r\n  "Kafeterya",\r\n  "Konferans Salonu",\r\n  "E-Spor Merkezi",\r\n  "Oyun Odaları"\r\n]\r\n',
+//       created_at: '2023-10-20T12:11:48.498753Z',
+//       updated_at: null,
+//       durum: 'E',
+//       kisi_kapasitesi: '1500',
+//       tesis_tel_no: 4449332,
+//       acilis_saati: '08.00',
+//       kapanis_saati: '17.00',
+//       doluluk: 76,
+//       sure: 144,
+//       ortalamaSure: { 7: 44, 14: 56, 28: 98 },
+//     },
+//     {
+//       id: 2,
+//       title: 'Akabe Bilgi Evi',
+//       address: 'Erler Sk. No: 14 Karatay/KONYA',
+//       location_name: 'Ali Ulvi Kurucu Gençlik Merkezi',
+//       location_lat: '37.8756575',
+//       location_long: '32.6240873',
+//       img: 'ali-ulvi.png',
+//       options:
+//         '[\r\n  "Kütüphane",\r\n  "Spor Salonları",\r\n  "Atölyeler",\r\n  "Derslikler",\r\n  "Kafeterya",\r\n  "Konferans Salonu",\r\n  "E-Spor Merkezi",\r\n  "Oyun Odaları"\r\n]\r\n',
+//       created_at: '2023-10-20T12:11:48.498753Z',
+//       updated_at: null,
+//       durum: 'E',
+//       kisi_kapasitesi: '1500',
+//       tesis_tel_no: 4449332,
+//       acilis_saati: '08.00',
+//       kapanis_saati: '17.00',
+//       doluluk: 24,
+//       sure: 36,
+//       ortalamaSure: { 7: 44, 14: 56, 28: 98 },
+//     },
+//   ],
+// }
 
 const TesislerList = (props) => {
   let location = useLocation()
   const token = location.search.slice(7)
   const navigate = useNavigate()
-  //   const [data, setData] = useState(null)
+    const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [optionModalOpen, setOptionModalOpen] = useState(false)
   const [selectedTesisOptions, setSelectedTesisOptions] = useState(null)
@@ -128,7 +128,7 @@ const TesislerList = (props) => {
         setLoading(false)
         if (res.data.code === 200) {
           console.log(res.data)
-          //   setData(res.data.tesisler)
+            setData(res.data.data)
         } else if (res.data.code === 400) {
           setWarningModalOpen({
             state: 'responseMessage',
@@ -151,14 +151,14 @@ const TesislerList = (props) => {
     return image
   }
 
-  const kayitliIds = data.user.kayitli_tesisler?.reduce((acc, curr) => {
+  const kayitliIds = data?.user.kayitli_tesisler?.reduce((acc, curr) => {
     if (!acc.includes(curr.tesis_id)) {
       acc.push(curr.tesis_id)
     }
     return acc
   }, [])
 
-  const onayBekleyenlerIds = data.user.onay_bekliyen_tesisler?.reduce(
+  const onayBekleyenlerIds = data?.user.onay_bekliyen_tesisler?.reduce(
     (acc, curr) => {
       if (!acc.includes(curr.tesis_id)) {
         acc.push(curr.tesis_id)
@@ -169,7 +169,7 @@ const TesislerList = (props) => {
   )
 
   const checkTesisler = () => {
-    const tesisler = data.user.onay_bekliyen_tesisler?.reduce((acc, curr) => {
+    const tesisler = data?.user.onay_bekliyen_tesisler?.reduce((acc, curr) => {
       data.tesisler?.map((tesis) => {
         if (
           !kayitliIds.includes(tesis.id) &&
@@ -220,7 +220,7 @@ const TesislerList = (props) => {
                         state: {
                           selectedTesis: {
                             ...item,
-                            user: data.user.kayitli_tesisler,
+                            user: data?.user.kayitli_tesisler,
                           },
                         },
                       })
@@ -352,12 +352,12 @@ const TesislerList = (props) => {
                       <button
                         style={{ backgroundColor: '#56A54D' }}
                         className='ozellikBtn'
-                        onClick={(e) => {
+                        onClick={() => {
                           window.open(
                             `${process.env.REACT_APP_ADDITIONAL_URL}/?token=${token}`,
                             '_self'
                           )
-                          e.stopPropagation()
+                          // e.stopPropagation()
                         }}
                       >
                         <RegisterPaperSvg />
