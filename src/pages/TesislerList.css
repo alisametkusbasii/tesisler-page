@@ -6,6 +6,12 @@
   border-radius: 5px;
   padding: 0.3rem;
   position: relative;
+  /* max-height: 6rem; */
+}
+
+img {
+  width: 6.4rem;
+  height: 100% !important;
 }
 
 .ozellikBtn {
@@ -17,19 +23,12 @@
   color: #fff;
   background-color: #fff;
   font-size: 14px !important;
-  padding: .3rem .6rem;
-}
-
-.beklemede {
-  position: absolute;
-  bottom: 15px;
-  right: 35px;
-  font-size: 14px !important;
+  /* padding: 0.3rem 0.4rem; */
 }
 
 .ozellikBtn svg {
- width: 1rem !important;
- height: 1rem !important;
+  width: 1rem !important;
+  height: 1rem !important;
 }
 
 .ozellikBtn:active {
@@ -50,8 +49,9 @@
   .item-adress {
     font-size: 10px;
   }
-  
+
   .ozellikBtn {
+    padding: 0.2rem 0.4rem;
     font-size: 10px !important;
   }
 
@@ -75,18 +75,19 @@
     height: 4rem;
   }
   .item-title {
-    font-size: 12px;
+    font-size: 11px;
   }
   .item-adress {
     font-size: 10px;
   }
-  
+
   .ozellikBtn {
-    font-size: 11px !important;
+    padding: 0.2rem 0.4rem;
+    font-size: 10px !important;
   }
 
   .beklemede {
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
 
   .ozellikBtn svg {
@@ -105,20 +106,21 @@
     height: 4.5rem;
   }
   .item-title {
-    font-size: 13px !important;
+    font-size: 11px !important;
   }
   .item-adress {
-    font-size: 12px !important;
+    font-size: 10px !important;
   }
-  
+
   .ozellikBtn {
-    font-size: 13px !important;
+    padding: 0.3rem 0.4rem;
+    font-size: 10px !important;
   }
 
   .beklemede {
-    font-size: 13px !important;
+    font-size: 10px !important;
   }
-  
+
   .ozellikBtn svg {
     width: 0.9rem !important;
     height: 0.9rem !important;
@@ -129,21 +131,30 @@
   }
 }
 
-@media screen and (min-width: 415px) {
+@media screen and (min-width: 425px) {
   .item-image img {
     height: 5rem;
   }
   .ozellikBtn {
-    font-size: 13px !important;
+    padding: 0.2rem 0.4rem;
+    font-size: 12px !important;
   }
 
   .beklemede {
+    font-size: 12px !important;
+  }
+
+  .item-title {
     font-size: 13px !important;
   }
-  
+
+  .item-adress {
+    font-size: 12px !important;
+  }
+
   .ozellikBtn svg {
-    width: .9rem !important;
-    height: .9rem !important;
+    width: 0.9rem !important;
+    height: 0.9rem !important;
   }
   .circle {
     width: 0.7rem;

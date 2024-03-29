@@ -102,7 +102,7 @@ const TesislerList = (props) => {
   let location = useLocation()
   const token = location.search.slice(7)
   const navigate = useNavigate()
-    const [data, setData] = useState(null)
+  const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [optionModalOpen, setOptionModalOpen] = useState(false)
   const [selectedTesisOptions, setSelectedTesisOptions] = useState(null)
@@ -128,7 +128,7 @@ const TesislerList = (props) => {
         setLoading(false)
         if (res.data.code === 200) {
           console.log(res.data)
-            setData(res.data.data)
+          setData(res.data.data)
         } else if (res.data.code === 400) {
           setWarningModalOpen({
             state: 'responseMessage',
@@ -270,43 +270,53 @@ const TesislerList = (props) => {
                 <div
                   style={{
                     display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-evenly',
                     margin: '0 0 0 0.5rem',
+                    width: '100%',
                   }}
                 >
-                  <div>
-                    <div className='item-title'>
-                      {getItem(item.tesis_id)?.title}
-                    </div>
-                    <div className='item-adress'>
-                      {getItem(item.tesis_id)?.address}
-                    </div>
-                  </div>
                   <div
                     style={{
                       display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      marginTop: '.5rem',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      width: '100%',
                     }}
                   >
-                    <button
-                      style={{ backgroundColor: '#0090FF' }}
-                      className='ozellikBtn'
-                      onClick={(e) => {
-                        setSelectedTesisOptions(item)
-                        setOptionModalOpen(true)
-                        e.stopPropagation()
+                    <div>
+                      <div className='item-title'>
+                        {getItem(item.tesis_id)?.title}
+                      </div>
+                      <div className='item-adress'>
+                        {getItem(item.tesis_id)?.address}
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginTop: '.5rem',
+                        marginRight: '.5rem',
+                        justifyContent: 'space-between',
                       }}
                     >
-                      <InfoCircleSvg />
-                      <div style={{ margin: '0 0 0 0.4rem' }}>
-                        Başvuru Bilgisi
+                      <button
+                        style={{ backgroundColor: '#0090FF' }}
+                        className='ozellikBtn'
+                        onClick={(e) => {
+                          setSelectedTesisOptions(item)
+                          setOptionModalOpen(true)
+                          e.stopPropagation()
+                        }}
+                      >
+                        <InfoCircleSvg />
+                        <div style={{ margin: '0 0 0 0.4rem' }}>
+                          Başvuru Bilgisi
+                        </div>
+                      </button>
+                      <div className='beklemede' style={{ color: '#AAAAAA' }}>
+                        Beklemede
                       </div>
-                    </button>
-                    <div className='beklemede' style={{ color: '#AAAAAA' }}>
-                      Beklemede
                     </div>
                   </div>
                 </div>
