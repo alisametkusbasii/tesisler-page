@@ -6,7 +6,7 @@
   border-radius: 5px;
   padding: 0.3rem;
   position: relative;
-  /* max-height: 6rem; */
+  min-height: 100px;
 }
 
 img {
@@ -41,11 +41,14 @@ img {
 
 @media screen and (min-width: 320px) {
   .item-image img {
+    object-fit: cover;
     height: 3rem;
   }
+
   .item-title {
     font-size: 11px;
   }
+
   .item-adress {
     font-size: 10px;
   }
@@ -72,11 +75,14 @@ img {
 
 @media screen and (min-width: 355px) {
   .item-image img {
+    object-fit: cover;
     height: 4rem;
   }
+
   .item-title {
     font-size: 11px;
   }
+
   .item-adress {
     font-size: 10px;
   }
@@ -103,11 +109,14 @@ img {
 
 @media screen and (min-width: 395px) {
   .item-image img {
+    object-fit: cover;
     height: 4.5rem;
   }
+
   .item-title {
     font-size: 11px !important;
   }
+
   .item-adress {
     font-size: 10px !important;
   }
@@ -125,6 +134,7 @@ img {
     width: 0.9rem !important;
     height: 0.9rem !important;
   }
+
   .circle {
     width: 0.6rem;
     height: 0.6rem;
@@ -133,8 +143,10 @@ img {
 
 @media screen and (min-width: 425px) {
   .item-image img {
+    object-fit: cover;
     height: 5rem;
   }
+
   .ozellikBtn {
     padding: 0.2rem 0.4rem;
     font-size: 12px !important;
@@ -156,6 +168,7 @@ img {
     width: 0.9rem !important;
     height: 0.9rem !important;
   }
+
   .circle {
     width: 0.7rem;
     height: 0.7rem;
