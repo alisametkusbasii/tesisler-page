@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import InputDisabled from './InputDisabled'
 import InfoCircleRedSvg from '../assets/icons/InfoCircleRedSvg'
 
-const OptionsModal = (props) => {
+const InfoModal = (props) => {
   console.log('props: ', props.infos)
   return (
     <Modal
@@ -99,4 +99,4 @@ const OptionsModal = (props) => {
   )
 }
 
-export default OptionsModal
+export default InfoModal

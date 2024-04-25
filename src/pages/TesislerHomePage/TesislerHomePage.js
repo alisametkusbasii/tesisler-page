@@ -14,6 +14,10 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const TesislerHomePage = () => {
   let location = useLocation()
   const data = location?.state?.selectedTesis
+  const azim = location?.state?.selectedTesis.azim
+  const location_lat = location?.state?.selectedTesis.location_lat
+  const ortalamaSure = location?.state?.selectedTesis.ortalamaSure
+  const doluluk = location?.state?.selectedTesis.doluluk
   const token = location.search.slice(7)
   const navigate = useNavigate()
 
@@ -69,17 +73,21 @@ const TesislerHomePage = () => {
             onSelect={setSelectedTesis}
             selectedItem={selectedTesis}
           />
-          <AzimMetre azimMetreCount={user?.azimMetre} />
-          <MapMarker
-            selectedTesis={selectedTesis}
-            setOptionModalOpen={setOptionModalOpen}
-          />
-          <ProgressBar doluluk={selectedTesis?.doluluk} />
-          <GecirilenSure
-            ortalamaSure={selectedTesis?.ortalamaSure}
-            lastDayCount={lastDayCount}
-            toggleDayModal={toggleDayModal}
-          />
+          {azim && <AzimMetre azimMetreCount={user?.azimMetre} />}
+          {location_lat && (
+            <MapMarker
+              selectedTesis={selectedTesis}
+              setOptionModalOpen={setOptionModalOpen}
+            />
+          )}
+          {doluluk >= 0 ? <ProgressBar doluluk={doluluk} /> : null}
+          {ortalamaSure && (
+            <GecirilenSure
+              ortalamaSure={ortalamaSure}
+              lastDayCount={lastDayCount}
+              toggleDayModal={toggleDayModal}
+            />
+          )}
         </div>
       </div>
       <OptionsModal

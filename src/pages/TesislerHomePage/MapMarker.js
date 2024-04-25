@@ -7,7 +7,7 @@ import PhoneSvg from '../../assets/icons/PhoneSvg'
 
 const MarkerIcon = () => (
   <div>
-    <img alt='' src={Marker} width={30} height={30} />
+    <img alt='' src={Marker} style={{ width: 30, height: 30 }} />
   </div>
 )
 
