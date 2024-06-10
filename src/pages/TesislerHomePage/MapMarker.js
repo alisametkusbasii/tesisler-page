@@ -35,7 +35,7 @@ const MapMarker = (props) => {
             lat: Number(props.selectedTesis.location_lat),
             lng: Number(props.selectedTesis.location_long),
           }}
-          defaultZoom={12}
+          defaultZoom={16}
         >
           <MarkerIcon
             lat={props.selectedTesis.location_lat}

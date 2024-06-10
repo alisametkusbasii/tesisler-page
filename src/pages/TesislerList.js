@@ -6,6 +6,7 @@ import TubitakWarningModal from '../components/TubitakWarningModal'
 import axios from 'axios'
 import LoadingAbsolute from '../components/Loading/LoadingAbsolute'
 import RegisterPaperSvg from '../assets/icons/RegisterPaperSvg'
+import EyeSvg from '../assets/icons/EyeSvg'
 import InfoCircleSvg from '../assets/icons/InfoCircleSvg'
 import InfoModal from '../components/InfoModal'
 
@@ -122,22 +123,7 @@ const TesislerList = (props) => {
             {data?.tesisler?.map(
               (item) =>
                 kayitliIds?.includes(item.id) && (
-                  <div
-                    key={item.id}
-                    className='list-item'
-                    onClick={() => {
-                      console.log(' item', item)
-                      navigate('/home', {
-                        state: {
-                          selectedTesis: {
-                            ...item,
-                            user: data?.user.kayitli_tesisler,
-                            azim: kayitliIds?.includes(item.id),
-                          },
-                        },
-                      })
-                    }}
-                  >
+                  <div key={item.id} className='list-item'>
                     <div className='item-image'>
                       <img
                         alt=''
@@ -158,6 +144,36 @@ const TesislerList = (props) => {
                       <div>
                         <div className='item-title'>{item.title}</div>
                         <div className='item-adress'>{item.address}</div>
+                      </div>
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          marginTop: '.5rem',
+                        }}
+                      >
+                        <button
+                          style={{ backgroundColor: '#56A54D' }}
+                          className='ozellikBtn'
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            console.log(' item', item)
+                            navigate('/home', {
+                              state: {
+                                selectedTesis: {
+                                  ...item,
+                                  user: data?.user.kayitli_tesisler,
+                                  azim: kayitliIds?.includes(item.id),
+                                },
+                              },
+                            })
+                          }}
+                        >
+                          <EyeSvg />
+                          <div style={{ margin: '0 0 0 0.4rem' }}>
+                            Görüntüle
+                          </div>
+                        </button>
                       </div>
                     </div>
                   </div>
